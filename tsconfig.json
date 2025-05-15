@@ -17,7 +17,15 @@
       "@/*": ["./src/*"]
     },
     "baseUrl": ".",
-    "types": ["node"]
+    "types": ["node", "react", "react-dom"],
+    "strictPropertyInitialization": false,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
