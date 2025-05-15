@@ -17,7 +17,7 @@
     "bullmq": "^4.1.0",
     "temporalio": "^1.21.0",
     "@pinecone-database/pinecone": "^2.2.1",
-    "langchain": "^0.0.300",
+    "langchain": "^0.0.299",
     "@supabase/supabase-js": "^2.38.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.7",
@@ -25,6 +25,11 @@
     "@tailwindcss/line-clamp": "^0.4.2",
     "openai": "^4.0.0",
     "whisper": "^1.0.0"
+  },
+  "dependencies": {
+    "react-calendar": "^4.1.0",
+    "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-toast": "^1.1.5"
   },
   "devDependencies": {
     "@types/node": "^20.8.0",
