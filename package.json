@@ -11,7 +11,10 @@
   "dependencies": {
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-toast": "^1.1.5",
+    "@temporalio/client": "^1.11.8",
+    "@temporalio/worker": "^1.11.8",
     "clsx": "^2.1.1",
+    "instagram-web-api": "^2.2.2",
     "react-calendar": "^4.1.0",
     "tailwind-merge": "^3.3.0"
   },
