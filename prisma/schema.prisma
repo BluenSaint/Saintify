@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  posts         Post[]
+  interactions  Interaction[]
+  karmaCredits  Int       @default(0)
+  reputation    Int       @default(100)
+  settings      Json?
+}
+
+model Post {
+  id          String    @id @default(cuid())
+  title       String
+  content     String
+  platform    Platform
+  status      PostStatus @default(DRAFT)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  userId      String
+  user        User      @relation(fields: [userId], references: [id])
+  interactions Interaction[]
+  analytics   Analytics?
+}
+
+model Interaction {
+  id        String    @id @default(cuid())
+  type      InteractionType
+  content   String
+  platform  Platform
+  postId    String
+  post      Post      @relation(fields: [postId], references: [id])
+  userId    String
+  user      User      @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+  metadata  Json?
+}
+
+model Analytics {
+  id        String    @id @default(cuid())
+  postId    String    @unique
+  post      Post      @relation(fields: [postId], references: [id])
+  views     Int       @default(0)
+  likes     Int       @default(0)
+  comments  Int       @default(0)
+  shares    Int       @default(0)
+  engagement Float    @default(0)
+  metrics   Json?
+}
+
+enum Platform {
+  INSTAGRAM
+  THREADS
+  TIKTOK
+  TWITTER
+  YOUTUBE
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum InteractionType {
+  LIKE
+  COMMENT
+  SHARE
+  DM
+  VIEW
+}
