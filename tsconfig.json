@@ -17,7 +17,7 @@
       "@/*": ["./src/*"]
     },
     "baseUrl": ".",
-    "types": ["node", "react", "react-dom"],
+    "types": ["node", "react", "react-dom", "jest"],
     "strictPropertyInitialization": false,
     "noImplicitAny": true,
     "noImplicitThis": true,

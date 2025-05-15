@@ -2,7 +2,7 @@ import { PlatformPost } from "@/lib/platforms/basePlatform";
 import { Instagram } from "instagram-web-api";
 
 export class InstagramService {
-  private client: Instagram;
+  public client: Instagram;
 
   constructor(private readonly config: {
     username: string;
